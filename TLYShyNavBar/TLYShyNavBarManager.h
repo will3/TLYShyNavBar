@@ -80,6 +80,8 @@
  */
 @property (nonatomic, weak) id<TLYShyNavBarManagerDelegate> delegate;
 
+@property (nonatomic, readonly) CGFloat navBarHeight;
+
 @end
 
 /* PROTOCOL DESCRIPTION:

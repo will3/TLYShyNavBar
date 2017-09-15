@@ -167,6 +167,7 @@
     {
         CGFloat newYOffset = self.view.center.y + deltaY;
         CGFloat newYCenter = MAX(MIN(self.expandedCenterValue.y, newYOffset), self.contractedCenterValue.y);
+        self.yCenter = newYCenter;
         
         [self _updateCenter:CGPointMake(self.expandedCenterValue.x, newYCenter)];
         

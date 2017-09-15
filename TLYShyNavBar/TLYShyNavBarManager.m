@@ -44,6 +44,8 @@ static void * const kTLYShyNavBarManagerKVOContext = (void*)&kTLYShyNavBarManage
 
 @property (nonatomic, readonly) BOOL isViewControllerVisible;
 
+@property (nonatomic) CGFloat navBarHeight;
+
 @end
 
 @implementation TLYShyNavBarManager
@@ -129,6 +131,8 @@ static void * const kTLYShyNavBarManagerKVOContext = (void*)&kTLYShyNavBarManage
 
     UIView *navbar = viewController.navigationController.navigationBar;
     NSAssert(navbar != nil, @"Please make sure the viewController is already attached to a navigation controller.");
+    
+    self.navBarHeight = navbar.bounds.size.height;
 
     viewController.extendedLayoutIncludesOpaqueBars = YES;
 
@@ -329,6 +333,8 @@ static void * const kTLYShyNavBarManagerKVOContext = (void*)&kTLYShyNavBarManage
         }
 
         [self.navBarController updateYOffset:deltaY];
+        
+        self.navBarHeight = self.navBarController.yCenter;
     }
 
     self.previousYOffset = self.scrollView.contentOffset.y;
